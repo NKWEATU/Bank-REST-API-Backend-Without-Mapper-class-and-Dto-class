@@ -27,6 +27,7 @@ public class AccountController {
     }
 
     // Get Account by ID
+    //http://localhost:8080/api/accounts/1
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccountById(@PathVariable Long id){
         Account account = accountService.getAccountById(id);
@@ -34,6 +35,7 @@ public class AccountController {
     }
 
     // Deposit
+    //http://localhost:8080/api/accounts/1/deposit
     @PutMapping("/{id}/deposit")
     public ResponseEntity<Account> deposit(@PathVariable Long id,
                                            @RequestBody Map<String, Double> request){
@@ -43,6 +45,7 @@ public class AccountController {
     }
 
     // Withdraw
+    //http://localhost:8080/api/accounts/1/withdraw
     @PutMapping("/{id}/withdraw")
     public ResponseEntity<Account> withdraw(@PathVariable Long id,
                                             @RequestBody Map<String, Double> request){
@@ -52,6 +55,7 @@ public class AccountController {
     }
 
     // Get All Accounts
+    //http://localhost:8080/api/accounts
     @GetMapping
     public ResponseEntity<List<Account>> getAllAccounts(){
         List<Account> accounts = accountService.getAllAccounts();
@@ -59,6 +63,7 @@ public class AccountController {
     }
 
     // Delete Account
+    //http://localhost:8080/api/accounts/1
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAccount(@PathVariable Long id){
         accountService.deleteAccount(id);
